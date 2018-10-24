@@ -9,9 +9,6 @@ PODS:
     - ObjectMapper (~> 3.3)
   - Amplitude-iOS (4.3.1)
   - Analytics (3.6.9)
-  - BDTests (0.0.13):
-    - OHHTTPStubs
-    - OHHTTPStubs/Swift
   - Crashlytics (3.10.9):
     - Fabric (~> 1.7.13)
   - Differentiator (3.1.0)
@@ -19,9 +16,9 @@ PODS:
   - FirebaseAnalytics (3.9.0):
     - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseCore (3.6.0):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseInstanceID (1.0.10):
     - FirebaseCore (~> 3.6)
   - Google/Analytics (3.1.0):
@@ -31,28 +28,13 @@ PODS:
     - FirebaseAnalytics (~> 3.2)
   - GoogleAnalytics (3.17.0)
   - GoogleToolboxForMac/Defines (2.1.4)
-  - GoogleToolboxForMac/NSData+zlib (2.1.4):
+  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - Instabug (8.0.15)
   - ObjectMapper (3.3.0)
-  - ObjectMapper+Realm (0.6):
+  - "ObjectMapper+Realm (0.6)":
     - ObjectMapper
     - RealmSwift
-  - OHHTTPStubs (6.1.0):
-    - OHHTTPStubs/Default (= 6.1.0)
-  - OHHTTPStubs/Core (6.1.0)
-  - OHHTTPStubs/Default (6.1.0):
-    - OHHTTPStubs/Core
-    - OHHTTPStubs/JSON
-    - OHHTTPStubs/NSURLSession
-    - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (6.1.0):
-    - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (6.1.0):
-    - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (6.1.0)
-  - OHHTTPStubs/Swift (6.1.0):
-    - OHHTTPStubs/Default
   - ReachabilitySwift (4.3.0)
   - Realm (3.11.0):
     - Realm/Headers (= 3.11.0)
@@ -98,12 +80,11 @@ DEPENDENCIES:
   - AlamofireImage
   - AlamofireObjectMapper (~> 5.0)
   - Analytics
-  - BDTests (from `https://github.com/bytedissident/BDTests`)
   - Crashlytics
   - Fabric
   - Google/Analytics
   - Instabug
-  - ObjectMapper+Realm
+  - "ObjectMapper+Realm"
   - ReachabilitySwift
   - RealmSwift
   - RxAlamofire
@@ -118,16 +99,47 @@ DEPENDENCIES:
   - UrbanAirship-iOS-SDK
   - ZDCChat
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - 1PasswordExtension
+    - AcknowList
+    - Alamofire
+    - AlamofireImage
+    - AlamofireObjectMapper
+    - Amplitude-iOS
+    - Analytics
+    - Crashlytics
+    - Differentiator
+    - Fabric
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - Google
+    - GoogleAnalytics
+    - GoogleToolboxForMac
+    - Instabug
+    - ObjectMapper
+    - "ObjectMapper+Realm"
+    - ReachabilitySwift
+    - Realm
+    - RealmSwift
+    - RxAlamofire
+    - RxCocoa
+    - RxDataSources
+    - RxRealm
+    - RxSwift
+    - Segment-Amplitude
+    - Stripe
+    - SwiftKeychainWrapper
+    - SwiftLint
+    - UrbanAirship-iOS-SDK
+    - ZDCChat
+
 EXTERNAL SOURCES:
-  BDTests:
-    :git: https://github.com/bytedissident/BDTests
   Spring:
     :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
-  BDTests:
-    :commit: 6d99a912c275e4a4fbf6964a4997d178b5f0b191
-    :git: https://github.com/bytedissident/BDTests
   Spring:
     :commit: fafd0b2e8d4d46405bd86fa7ba84bb7f73a20b13
     :git: https://github.com/MengTo/Spring.git
@@ -140,7 +152,6 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 3395e698901d8b0e6f48b7d0c43bd47875325102
   Amplitude-iOS: df355e2be58972041acde9576a2ae97c217bf941
   Analytics: 6541ce337e99d9f7a2240a8b3953940a7be5f998
-  BDTests: 44d5b6e9f57a61938583e9a1f389099c65f262d3
   Crashlytics: 55e24fc23989680285a21cb1146578d9d18e432c
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Fabric: 25d0963b691fc97be566392243ff0ecef5a68338
@@ -152,8 +163,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   Instabug: 1f26cca29ec1fc49ba7dffbc5533734c14f8c28d
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
-  ObjectMapper+Realm: 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
-  OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
+  "ObjectMapper+Realm": 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
@@ -170,6 +180,6 @@ SPEC CHECKSUMS:
   UrbanAirship-iOS-SDK: f3f16fb21f0b39fb5fe9bd20e5c31bfb7fe21ef5
   ZDCChat: 1def9764647bb81cf71aebd9df38aa4024c52d12
 
-PODFILE CHECKSUM: be49a0d4585ac88fff59a812930dbd676c57ecaf
+PODFILE CHECKSUM: 719451e2d28f73712c24b8eb191ef6d35fac0e2c
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

@@ -8,8 +8,6 @@ def shared_pods
 		pod 'Analytics'
 	    pod 'AlamofireImage'
 		pod 'AlamofireObjectMapper', '~> 5.0'
-	    pod 'BDTests', :git => 'https://github.com/bytedissident/BDTests'
-        # pod 'CryptoSwift'
 	    pod 'Crashlytics'
 	    pod 'Fabric'
 	    pod 'Instabug'
