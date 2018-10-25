@@ -30,20 +30,8 @@ jobs:
             bundle install
       - run:
           name: Boot rails server
-          command: rails s
+          command: rails server
           background: true
-      - checkout
-      - run:
-          name: Download iOS Repo
-          command: |
-            git clone develop $CIRCLE_REPOSITORY_URL 
-            cd $CIRCLE_PROJECT_REPONAME
-      
-  ios:
-    macos:
-      xcode: "10.0.0"
-    working_directory: /Users/distiller/project
-    steps:
       - checkout
       - run:
           name: Run unit tests
