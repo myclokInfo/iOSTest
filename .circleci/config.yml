@@ -28,6 +28,7 @@ jobs:
             git checkout develop
             gem install public_suffix --version 3.0.3
             sudo gem install rails
+            bundle install
             rails s
       - run:
           name: Run unit tests
