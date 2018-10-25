@@ -28,6 +28,7 @@ jobs:
             git checkout develop
             sudo gem install rails
             bundle install
+            background: true
             rails server
       - checkout
       - run:
