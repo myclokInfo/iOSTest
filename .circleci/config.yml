@@ -14,8 +14,8 @@ jobs:
       - checkout
       - type: checkout
       - type: shell
-        name: "Install Dependencies"
-        command: git clone git@github.com:myclokInfo/TestRubyRepo.git
+          name: "Install Dependencies"
+          command: git clone git@github.com:myclokInfo/TestRubyRepo.git
       - run:
           name: Set Ruby version
           command: echo "ruby-2.5.1" > ~/.ruby-version
