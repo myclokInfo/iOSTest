@@ -15,14 +15,15 @@ jobs:
             - "d7:65:f7:c0:87:1b:e1:f2:0c:9d:e9:dd:9f:c9:f1:fc"
       - checkout
       - run:
-          name: Clone TestRubyRepo Web repo
-          command: |
-            mkdir ~/.ssh/ && echo -e "Host git@github.com:myclokInfo/TestRubyRepo.git no\n" > ~/.ssh/config
-            git clone -b develop $CIRCLE_REPOSITORY_URL 
-            cd $CIRCLE_PROJECT_REPONAME
-      - run:
           name: Set Ruby version
           command: echo "ruby-2.5.1" > ~/.ruby-version
+      - run:
+          name: Clone TestRubyRepo Web repo
+          command: |
+            git clone -b $CIRCLE_BRANCH https://github.com/myclokInfo/TestRubyRepo.git
+            cd TestRubyRepo
+            git checkout develop
+            rails s
       - run:
           name: Bundle install
           command: bundle check || bundle install
