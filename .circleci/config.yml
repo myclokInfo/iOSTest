@@ -19,7 +19,7 @@ jobs:
           command: echo "ruby-2.5.1" > ~/.ruby-version
       - run:
           name: Bundle install
-          command: bundle check || bundle install
+          command: gem install rake && bundle install
       - run:
           name: Clone TestRubyRepo Web repo
           command: |
