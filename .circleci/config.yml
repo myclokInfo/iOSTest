@@ -12,7 +12,6 @@ jobs:
           fingerprints:
             - "d7:65:f7:c0:87:1b:e1:f2:0c:9d:e9:dd:9f:c9:f1:fc"
       - checkout
-      - type: checkout
       - type: shell
           name: "Install Dependencies"
           command: git clone git@github.com:myclokInfo/TestRubyRepo.git
