@@ -3,7 +3,7 @@ jobs:
   build:
     macos:
       xcode: "10.0.0"
-    working_directory: /Users/distiller/project
+    working_directory: ~/project/myclok/
     # use a --login shell so our "set Ruby version" command gets picked up for later steps
     shell: /bin/bash --login -o pipefail
     environment:
@@ -18,15 +18,15 @@ jobs:
           name: Set Ruby version
           command: echo "ruby-2.5.1" > ~/.ruby-version
       - run:
+          name: Bundle install
+          command: bundle check || bundle install
+      - run:
           name: Clone TestRubyRepo Web repo
           command: |
-            git clone -b $CIRCLE_BRANCH https://github.com/myclokInfo/TestRubyRepo.git
+            git clone git@github.com:myclokInfo/TestRubyRepo.git
             cd TestRubyRepo
             git checkout develop
             rails s
-      - run:
-          name: Bundle install
-          command: bundle check || bundle install
       - run:
           name: Run unit tests
           command: |
