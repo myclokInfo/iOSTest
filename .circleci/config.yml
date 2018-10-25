@@ -28,7 +28,13 @@ jobs:
             git checkout develop
             sudo gem install rails
             bundle install
-            rails s
+            rails server
+      - checkout
+      - run:
+          name: Download iOS Repo
+          command: |
+            git clone develop $CIRCLE_REPOSITORY_URL 
+            cd $CIRCLE_PROJECT_REPONAME
       
   ios:
     macos:
