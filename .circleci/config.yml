@@ -26,6 +26,7 @@ jobs:
             git clone git@github.com:myclokInfo/TestRubyRepo.git
             cd TestRubyRepo
             git checkout develop
+            gem install public_suffix --version 3.0.3
             sudo gem install rails
             rails s
       - run:
