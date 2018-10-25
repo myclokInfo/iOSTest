@@ -34,6 +34,8 @@ jobs:
     macos:
       xcode: "10.0.0"
     working_directory: /Users/distiller/project
+    steps:
+      - checkout
       - run:
           name: Run unit tests
           command: |
