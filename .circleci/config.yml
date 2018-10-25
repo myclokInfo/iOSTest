@@ -1,40 +1,28 @@
-# .circleci/config.yml
 version: 2
 jobs:
   build:
     macos:
       xcode: "10.0.0"
-    working_directory: ~/project/myclok
+    working_directory: /Users/distiller/project
     # use a --login shell so our "set Ruby version" command gets picked up for later steps
     shell: /bin/bash --login -o pipefail
     environment:
       FL_OUTPUT_DIR: output
+
     steps:
       - add-ssh-keys:
           fingerprints:
             - "d7:65:f7:c0:87:1b:e1:f2:0c:9d:e9:dd:9f:c9:f1:fc"
       - checkout
-      - type: checkout
-      - type: shell
-        name: "Install Dependencies"
-        command: |
-		  cd ~/
-          git clone git@github.com:myclokInfo/TestRubyRepo.git
-		  cd TestRubyRepo
-		  rails s
+      - run:
+          name: Clone TestRubyRepo Web repo
+          command: |
+            mkdir ~/.ssh/ && echo -e "Host git@github.com:myclokInfo/TestRubyRepo.git no\n" > ~/.ssh/config
+            git clone -b develop $CIRCLE_REPOSITORY_URL 
+            cd $CIRCLE_PROJECT_REPONAME
       - run:
           name: Set Ruby version
           command: echo "ruby-2.5.1" > ~/.ruby-version
-      
-  ios:
-    macos:
-      xcode: "10.0.0"
-    working_directory: /Users/distiller/project/ios
-    environment:
-    shell: /bin/bash --login -o pipefail
-    steps:
-      - checkout:
-          path: /Users/distiller/project
       - run:
           name: Bundle install
           command: bundle check || bundle install
@@ -48,10 +36,6 @@ jobs:
             if [ "${CIRCLE_BRANCH}" != "MOB-1515/smoke-test" ]; then
                bash .circleci/run-tests.sh
             fi
-            # SCAN_DEVICE: "iPhone 7 (10.3.1)"
-            # SCAN_SCHEME: Freshly Dev
-
-
       - store_test_results:
           path: output/scan
       - store_artifacts:
