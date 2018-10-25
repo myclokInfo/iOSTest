@@ -28,9 +28,8 @@ jobs:
             git checkout develop
             sudo gem install rails
             bundle install
-          command: |
-            background: true
-            rails server
+            rails server:
+              background: true
       - checkout
       - run:
           name: Download iOS Repo
