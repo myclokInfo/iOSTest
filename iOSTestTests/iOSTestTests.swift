@@ -16,15 +16,11 @@ class iOSTestTests: XCTestCase {
     }
     
     func testFirst() {
-        XCTAssertEqual(1, 2)
+        XCTAssertEqual(2, 2)
     }
     
     func testSecond() {
         XCTAssertEqual(2, 2)
-    }
-    
-    func testThird() {
-        XCTAssertEqual(4, 4)
     }
 
 }
