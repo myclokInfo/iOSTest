@@ -4,11 +4,9 @@ jobs:
   build:
     macos:
       xcode: "10.0.0"
-    working_directory: ~/project/myclok
-    # use a --login shell so our "set Ruby version" command gets picked up for later steps
-    shell: /bin/bash --login -o pipefail
+    working_directory: /Users/distiller/project/ios
     environment:
-      FL_OUTPUT_DIR: output
+    shell: /bin/bash --login -o pipefail
     steps:
       - add-ssh-keys:
           fingerprints:
@@ -17,18 +15,10 @@ jobs:
       - type: checkout
       - type: shell
         name: "Install Dependencies"
-        command: |
-          git clone git@github.com:myclokInfo/TestRubyRepo.git
+        command: git clone git@github.com:myclokInfo/TestRubyRepo.git
       - run:
           name: Set Ruby version
           command: echo "ruby-2.5.1" > ~/.ruby-version
-      
-  ios:
-    macos:
-      xcode: "10.0.0"
-    working_directory: /Users/distiller/project/ios
-    environment:
-    shell: /bin/bash --login -o pipefail
     steps:
       - checkout:
           path: /Users/distiller/project
