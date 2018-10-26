@@ -18,13 +18,27 @@ class iOSTestTests: XCTestCase {
 
     
     func testNetworkCall() {
-        let urlString = "http://localhost:3000/todos/1"
+        let urlString = "http://localhost:3000/board"
         let expectationAuthorization = expectation(description: "true authorization")
 
         Alamofire.request(urlString, method: .get, parameters: nil, encoding: URLEncoding.default).validate(statusCode: 200..<299).responseJSON(completionHandler: { response in
-
             print(" response is_______________________________ \(response) sanity check for this process")
-            XCTAssertEqual(response.response?.statusCode, 404)
+            
+            
+                switch response.result {
+                case .success(let data as [String:Any]):
+                    if let testing =  response.result.value as? NSDictionary {
+                        XCTAssertEqual(testing.value(forKey: "created_at") as! String, "2018-04-11T23:27:51.205Z")
+                    }
+                    
+                case .failure(let err):
+                    print(err.localizedDescription)
+                    XCTFail()
+                default:
+                    XCTFail()
+            }
+            
+            
             expectationAuthorization.fulfill()
 
         })
