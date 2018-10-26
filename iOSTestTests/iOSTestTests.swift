@@ -7,20 +7,29 @@
 //
 
 import XCTest
+import Alamofire
 @testable import iOSTest
 
 class iOSTestTests: XCTestCase {
-
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
     }
+
+
     
-    func testFirst() {
-        XCTAssertEqual(2, 2)
-    }
-    
-    func testSecond() {
-        XCTAssertEqual(2, 2)
+    func testNetworkCall() {
+        let urlString = "http://localhost:3000/todos/1"
+        let expectationAuthorization = expectation(description: "true authorization")
+
+        Alamofire.request(urlString, method: .get, parameters: nil, encoding: URLEncoding.default).validate(statusCode: 200..<299).responseJSON(completionHandler: { response in
+
+            print(" response is_______________________________ \(response) sanity check for this process")
+            XCTAssertEqual(response.response?.statusCode, 404)
+            expectationAuthorization.fulfill()
+
+        })
+        wait(for: [expectationAuthorization], timeout: 5)
+
     }
 
 }
