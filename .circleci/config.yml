@@ -4,6 +4,9 @@ jobs:
     macos:
       docker: 
         - image: circleci/postgres:10.4.0
+            environment:
+             - POSTGRES_USER: root
+             - POSTGRES_DB: circle-test_test
       xcode: "10.0.0"
     working_directory: ~/project/myclok/
     # use a --login shell so our "set Ruby version" command gets picked up for later steps
