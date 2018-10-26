@@ -31,8 +31,8 @@ jobs:
       - run:
           name: Boot rails server
           command: |
-          cd TestRubyRepo
-          rails server
+           cd TestRubyRepo
+           rails server
           background: true
       - checkout
       - run:
