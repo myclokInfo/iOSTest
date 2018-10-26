@@ -1,19 +1,9 @@
 version: 2
 jobs:
-  build: # job name
-    docker: # Each job requires specifying an executor
-    # (either docker, macos, or machine), see
-    # circleci.com/docs/2.0/executor-types/ for a comparison
-    # and more examples.
-      - image: circleci/postgres:10.4.0-alpine
-    steps:
-      - checkout
-      - save_cache: # Caches dependencies with a cache key
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-            - ~/circleci-demo-workflows	
-  build2:
+  build:
     macos:
+      docker: 
+        - image: circleci/postgres:10.4.0
       xcode: "10.0.0"
     working_directory: ~/project/myclok/
     # use a --login shell so our "set Ruby version" command gets picked up for later steps
