@@ -30,11 +30,9 @@ jobs:
             bundle install
       - run:
           name: Boot rails server
-          command: rails server
-          background: true
-      - run:
-          name: Boot rails server again to check that it's running
-          command: rails server
+          command: |
+          cd TestRubyRepo
+          rails server
           background: true
       - checkout
       - run:
