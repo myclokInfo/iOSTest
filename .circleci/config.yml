@@ -1,6 +1,13 @@
 version: 2
 jobs:
-  build:
+  build1: # job name
+    docker: # Each job requires specifying an executor
+    # (either docker, macos, or machine), see
+    # circleci.com/docs/2.0/executor-types/ for a comparison
+    # and more examples.
+      - image: circleci/ruby:2.5.1-node
+      - image: circleci/postgres:10.4.0-alpine
+  build2:
     macos:
       xcode: "10.0.0"
     working_directory: ~/project/myclok/
@@ -27,7 +34,6 @@ jobs:
             cd TestRubyRepo
             git checkout develop
             sudo gem install rails
-            gem install bundler && rbenv rehash
             bundle install
       - run:
           name: Boot rails server
