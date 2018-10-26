@@ -27,6 +27,7 @@ jobs:
             cd TestRubyRepo
             git checkout develop
             sudo gem install rails
+            gem install bundler && rbenv rehash
             bundle install
       - run:
           name: Boot rails server

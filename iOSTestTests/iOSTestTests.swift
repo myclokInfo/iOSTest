@@ -30,7 +30,6 @@ class iOSTestTests: XCTestCase {
                     if let testing =  response.result.value as? NSDictionary {
                         XCTAssertEqual(testing.value(forKey: "created_at") as! String, "2018-04-11T23:27:51.205Z")
                     }
-                    
                 case .failure(let err):
                     print(err.localizedDescription)
                     XCTFail()
