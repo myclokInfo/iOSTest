@@ -14,7 +14,7 @@ jobs:
          - POSTGRES_DB: circle-test_test
     macos:
       xcode: "10.0.0"
-    working_directory: ~/project/myclok/
+    working_directory: ~/project/myclok
     # use a --login shell so our "set Ruby version" command gets picked up for later steps
     shell: /bin/bash --login -o pipefail
     environment:
@@ -23,27 +23,21 @@ jobs:
     steps:
       - add-ssh-keys:
           fingerprints:
-            - "d7:65:f7:c0:87:1b:e1:f2:0c:9d:e9:dd:9f:c9:f1:fc"
-      - checkout
+            - "f4:7a:11:ad:1a:0f:13:9b:f6:57:3b:7e:74:3b:82:1a"
       - run:
           name: Set Ruby version
           command: echo "ruby-2.5.1" > ~/.ruby-version
       - run:
-          name: Bundle install
-          command: gem install rake && bundle install
-      - run:
-          name: Clone TestRubyRepo Web repo
+          name: Clone Test Web Repo
           command: |
             git clone git@github.com:myclokInfo/TestRubyRepo.git
+      - run:
+          name: Install Freshly Repo & Boot rails server
+          command: |
             cd TestRubyRepo
             git checkout develop
-            sudo gem install rails
-            bundle install
-      - run:
-          name: Boot rails server
-          command: |
-           cd TestRubyRepo
-           rails server
+            gem install bundler && bundle install
+            rails server
           background: true
       - checkout
       - run:
