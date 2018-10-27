@@ -49,7 +49,9 @@ jobs:
       - run:
           name: Run unit tests
           command: |
+            git clone git@github.com:myclokInfo/iOSTest.git
             cd iOSTest
+            git checkout develop
             if [ "${CIRCLE_BRANCH}" == "MOB-1515/smoke-test" ]; then
               bash .circleci/smoke-tests.sh
             fi
