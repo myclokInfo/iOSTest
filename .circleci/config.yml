@@ -49,6 +49,7 @@ jobs:
       - run:
           name: Run unit tests
           command: |
+            cd iOSTest
             if [ "${CIRCLE_BRANCH}" == "MOB-1515/smoke-test" ]; then
               bash .circleci/smoke-tests.sh
             fi
