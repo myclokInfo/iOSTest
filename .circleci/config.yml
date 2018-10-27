@@ -1,6 +1,9 @@
 version: 2
 jobs:
   build:
+    macos:
+      xcode: "10.0.0"
+    working_directory: ~/project/myclok/
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.5.1-node-browsers
@@ -12,9 +15,6 @@ jobs:
          environment:
          - POSTGRES_USER: root
          - POSTGRES_DB: circle-test_test
-    macos:
-      xcode: "10.0.0"
-    working_directory: ~/project/myclok/
     # use a --login shell so our "set Ruby version" command gets picked up for later steps
     shell: /bin/bash --login -o pipefail
     environment:
@@ -49,9 +49,6 @@ jobs:
       - run:
           name: Run unit tests
           command: |
-            git clone git@github.com:myclokInfo/iOSTest.git
-            cd iOSTest
-            git checkout develop
             if [ "${CIRCLE_BRANCH}" == "MOB-1515/smoke-test" ]; then
               bash .circleci/smoke-tests.sh
             fi
