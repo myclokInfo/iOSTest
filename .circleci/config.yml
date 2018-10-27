@@ -30,6 +30,7 @@ jobs:
       - run:
           name: Clone Test Web Repo
           command: |
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
             git clone git@github.com:myclokInfo/TestRubyRepo.git
       - run:
           name: Install Freshly Repo & Boot rails server
