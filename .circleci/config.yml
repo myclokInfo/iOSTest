@@ -1,4 +1,4 @@
-ersion: 2
+version: 2
 jobs:
   build:
     macos:
@@ -6,9 +6,9 @@ jobs:
     working_directory: ~/project/myclok/
     docker:
     - image: circleci/postgres:9.6.2-alpine
-     environment:
-       POSTGRES_USER: root
-       POSTGRES_DB: circle-test_test
+      environment:
+      - POSTGRES_USER: root
+      - POSTGRES_DB: circle-test_test
     shell: /bin/bash --login -o pipefail
     environment:
     - FL_OUTPUT_DIR: output
