@@ -32,7 +32,7 @@ jobs:
           git checkout develop
           sudo gem install rails
           bundle install
-          rails db:create db:seed
+          db:setup
     - run:
         name: Boot rails server
         command: |
