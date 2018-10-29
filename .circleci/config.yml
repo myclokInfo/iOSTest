@@ -16,8 +16,11 @@ jobs:
         name: Set Ruby version
         command: echo "ruby-2.5.1" > ~/.ruby-version
     - run:
-        name: Install cowsay
-        command: brew install postgres
+        name: Install Postgres
+        command: brew install postgresql
+    - run:
+        name: Start postgresql
+        command: brew services start postgresql
     - run:
         name: Bundle install
         command: gem install rake && bundle install
