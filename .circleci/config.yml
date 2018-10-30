@@ -10,8 +10,7 @@ jobs:
     steps:
       - add-ssh-keys:
           fingerprints:
-            - d7:65:f7:c0:87:1b:e1:f2:0c:9d:e9:dd:9f:c9:f1:fc
-      - checkout
+            - "d7:65:f7:c0:87:1b:e1:f2:0c:9d:e9:dd:9f:c9:f1:fc"
       - run:
           name: Set Ruby version
           command: echo "ruby-2.5.1" > ~/.ruby-version
