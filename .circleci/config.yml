@@ -19,16 +19,16 @@ jobs:
           name: Install postgresql
           command: brew install postgresql
       - run:
-        name: Bundle install
-        command: gem install rake && bundle install
+          name: Bundle install
+          command: gem install rake && bundle install
       - run:
-        name: Clone TestRubyRepo Web repo
-        command: |
-          git clone git@github.com:myclokInfo/TestRubyRepo.git
-          cd TestRubyRepo
-          git checkout develop
-          sudo gem install rails
-          bundle install
+          name: Clone TestRubyRepo Web repo
+          command: |
+           git clone git@github.com:myclokInfo/TestRubyRepo.git
+           cd TestRubyRepo
+           git checkout develop
+           sudo gem install rails
+           bundle install
       - run:
           name: Boot rails server
           command: |
