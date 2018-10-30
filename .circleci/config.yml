@@ -36,7 +36,7 @@ jobs:
            cd TestRubyRepo
            bundle exec rails server
           background: true
-      - checkout:
+      - checkout
       - run:
           name: Run unit tests
           command: |
