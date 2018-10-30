@@ -11,6 +11,7 @@ jobs:
       - add-ssh-keys:
           fingerprints:
             - d7:65:f7:c0:87:1b:e1:f2:0c:9d:e9:dd:9f:c9:f1:fc
+      - checkout
       - run:
           name: Set Ruby version
           command: echo "ruby-2.5.1" > ~/.ruby-version
@@ -18,18 +19,16 @@ jobs:
           name: Install postgresql
           command: brew install postgresql
       - run:
-          name: Start postgresql
-          command: brew services start postgresql
+        name: Bundle install
+        command: gem install rake && bundle install
       - run:
-          name: Clone TestRubyRepo Repo
-          command: |
-            git clone git@github.com:myclokInfo/TestRubyRepo.git
-      - run:
-          name: Install Freshly Repo
-          command: |
-            cd TestRubyRepo
-            git checkout develop
-            gem install bundler && bundle install
+        name: Clone TestRubyRepo Web repo
+        command: |
+          git clone git@github.com:myclokInfo/TestRubyRepo.git
+          cd TestRubyRepo
+          git checkout develop
+          sudo gem install rails
+          bundle install
       - run:
           name: Boot rails server
           command: |
