@@ -37,7 +37,6 @@ jobs:
            bundle exec rails server
           background: true
       - checkout:
-          path: ~/project/ios
       - run:
           name: Run unit tests
           command: |
