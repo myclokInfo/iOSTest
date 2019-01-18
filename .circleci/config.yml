@@ -3,7 +3,7 @@ version: 2
 jobs:
   build-and-test:
     macos:
-      xcode: "10.0.0"
+      xcode: "9.3.0"
     working_directory: /Users/distiller/project
     environment:
       FL_OUTPUT_DIR: output
@@ -11,8 +11,16 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Bundle install
+          command: bundle check || bundle install
+      - run:
+          name: Run Danger
+          command: bundle exec danger --verbose
+      - run:
           name: Run unit tests
           command: bash .circleci/run-tests.sh
+            # SCAN_DEVICE: "iPhone 7 (10.3.1)"
+            # SCAN_SCHEME: Freshly Dev
 
       - store_test_results:
           path: output/scan
