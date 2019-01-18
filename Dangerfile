@@ -32,4 +32,13 @@ if has_lib_changes && !has_test_changes
 end
 
 
-changelog.check
+xcov(
+  workspace: "iOSTest.xcworkspace",
+  scheme: "iOSTest",
+  output_directory: "xcov_output"
+)
+
+xcov.output_report(report)  
+
+
+# changelog.check
