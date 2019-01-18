@@ -4,9 +4,9 @@ jobs:
     macos:
       xcode: "10.0.0"
       working_directory: /Users/distiller/project
-       environment:
+        environment:
          FL_OUTPUT_DIR: output
-       steps:
+        steps:
          - checkout
          - run:
              name: Bundle install
