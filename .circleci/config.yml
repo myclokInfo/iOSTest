@@ -46,8 +46,6 @@ jobs:
             fi
       - store_test_results:
           path: output/scan
-      - store_artifacts:
-          path: 
     "iOS":
        macos:
          xcode: "10.0.0"
