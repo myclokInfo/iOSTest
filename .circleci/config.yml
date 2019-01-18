@@ -75,13 +75,6 @@ workflows:
   build-and-test:
     jobs:
       - build
-      - "web-server-iOS":
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - develop
       - "iOS":
           requires:
             - build
