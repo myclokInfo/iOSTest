@@ -11,16 +11,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Bundle install
-          command: bundle check || bundle install
-      - run:
-          name: Run Danger
-          command: bundle exec danger --verbose
-      - run:
           name: Run unit tests
           command: bash .circleci/run-tests.sh
-            # SCAN_DEVICE: "iPhone 7 (10.3.1)"
-            # SCAN_SCHEME: Freshly Dev
+      - run:
+        name: Bundle install
+        command: bundle check || bundle install
+      - run:
+        name: Run Danger
+        command: bundle exec danger --verbose
 
       - store_test_results:
           path: output/scan
