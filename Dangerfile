@@ -31,11 +31,11 @@ if has_lib_changes && !has_test_changes
        :sticky => false)
 end
 
-
-xcov(
-  workspace: "iOSTest.xcworkspace",
-  scheme: "iOSTest",
-  output_directory: "xcov_output"
+xcov.report(
+   scheme: 'iOSTest',
+   workspace: 'iOSTest/iOSTest.xcworkspace',
+   exclude_targets: 'iOSTest.app',
+   minimum_coverage_percentage: 90
 )
 
 xcov.output_report(report)  
