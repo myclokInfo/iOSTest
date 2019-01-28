@@ -38,7 +38,7 @@ end
 #    minimum_coverage_percentage: 90
 # )
 
-xcov.output_report(report)  
+# xcov.output_report(report)
 
 
 # changelog.check
