@@ -13,7 +13,7 @@ jobs:
         command: bundle check || bundle install
     - run:
         name: Run unit tests
-        command: bash .circleci/run-tests.
+        command: bash .circleci/run-tests.sh
     - run:
         name: Run Danger
         command: bundle exec danger --verbose
