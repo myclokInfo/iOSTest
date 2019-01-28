@@ -31,14 +31,9 @@ if has_lib_changes && !has_test_changes
        :sticky => false)
 end
 
-xcov.report(
-   scheme: 'iOSTest',
-   workspace: 'iOSTest/iOSTest.xcworkspace',
-   exclude_targets: 'iOSTest.app',
-   output_directory: 'xcov_output',
-   minimum_coverage_percentage: 90
-)
-
+slather.notify_if_coverage_is_less_than(minimum_coverage: 80)
+slather.notify_if_modified_file_is_less_than(minimum_coverage: 60)
+slather.show_coverage
 # xcov.output_report(report)
 
 
