@@ -38,15 +38,16 @@
 #   minimum_coverage_percentage: 90.0
 # )
 
-xcov(
-  workspace: "iOSTest.xcworkspace",
-  scheme: "iOSTest",
-  only_project_targets: true, 
-  json_report: true,
-  output_directory: "./fastlane/xcov_output",
-  derived_data_path: "/Users/distiller/project/ddata/"
-)
+
 # xcov.output_report(report)
 
+# Code Coverage
+begin
+  slather.configure("iOSTest.xcworkspace", "iOSTest")
+  slather.notify_if_coverage_is_less_than(minimum_coverage: 60)
+  slather.notify_if_modified_file_is_less_than(minimum_coverage: 30)
+  slather.show_coverage
+rescue
+  warn("No slather output found")
 
 # changelog.check
