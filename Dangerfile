@@ -31,16 +31,10 @@
 #        :sticky => false)
 # end
 
-# xcov(
-#   workspace: "iOSTest.xcworkspace",
-#   scheme: "iOSTest",
-#   only_project_targets: true,
-#   minimum_coverage_percentage: 90.0
-# )
+
 fail 'Please add labels to this PR' if github.pr_labels.empty?
 
 
-# xcov.output_report(report)
 
 # Code Coverage
 # slather.configure('iOSTest.xcodeproj', 'iOSTest', options: { workspace: 'iOSTest.xcworkspace' })

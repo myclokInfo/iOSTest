@@ -9,14 +9,20 @@ jobs:
     steps:
     - checkout
     - run:
-        name: Bundle install
-        command: bundle check || bundle install
-    - run:
         name: Run unit tests
         command: bash .circleci/run-tests.sh
     - run:
+        name: Bundle install
+        command: bundle check || bundle install
+    - run: 
+        name: Waitting Coverage generated
+        command: sleep 5
+    - run:
         name: Run Danger
         command: bundle exec danger --verbose
+    - run:
+        name: Test Coverage
+        command: bundle exec slather
     - store_test_results:
         path: output/scan
     - store_artifacts:
