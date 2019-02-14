@@ -35,9 +35,7 @@ xcov(
   workspace: "iOSTest.xcworkspace",
   scheme: "iOSTest",
   only_project_targets: true, 
-  json_report: true,
-  output_directory: "./fastlane/xcov_output",
-  derived_data_path: "/Users/distiller/project/ddata/" 
+  minimum_coverage_percentage: 90.0
 )
 # xcov.output_report(report)
 
