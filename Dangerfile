@@ -31,11 +31,20 @@
 #        :sticky => false)
 # end
 
+# xcov(
+#   workspace: "iOSTest.xcworkspace",
+#   scheme: "iOSTest",
+#   only_project_targets: true,
+#   minimum_coverage_percentage: 90.0
+# )
+
 xcov(
   workspace: "iOSTest.xcworkspace",
   scheme: "iOSTest",
   only_project_targets: true, 
-  minimum_coverage_percentage: 90.0
+  json_report: true,
+  output_directory: "./fastlane/xcov_output",
+  derived_data_path: "/Users/distiller/project/ddata/"
 )
 # xcov.output_report(report)
 
