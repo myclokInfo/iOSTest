@@ -37,6 +37,7 @@
 #   only_project_targets: true,
 #   minimum_coverage_percentage: 90.0
 # )
+fail 'Please add labels to this PR' if github.pr_labels.empty?
 
 
 # xcov.output_report(report)
