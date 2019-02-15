@@ -37,7 +37,9 @@ fail 'Please add labels to this PR' if github.pr_labels.empty?
 
 
 # Code Coverage
-slather.configure('iOSTest.xcodeproj', 'iOSTest', options: { workspace: 'iOSTest.xcworkspace' })
+slather.configure("iOSTest.xcodeproj", "iOSTest", options: {
+  workspace: "iOSTest.xcworkspace",
+})
 slather.notify_if_coverage_is_less_than(minimum_coverage: 80, notify_level: :warning)
 slather.notify_if_modified_file_is_less_than(minimum_coverage: 50, notify_level: :warning)
 slather.show_modified_files_coverage
