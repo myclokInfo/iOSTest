@@ -51,8 +51,16 @@ fail 'Please add labels to this PR' if github.pr_labels.empty?
 xcov.report(
    scheme: 'iOSTest',
    workspace: 'iOSTest.xcworkspace',
-   exclude_targets: 'Alamofire.framework',
+   only_project_targets: true.
    minimum_coverage_percentage: 10.0
 )
+
+# xcov.report(
+#    scheme: 'iOSTest',
+#    workspace: 'iOSTest.xcworkspace',
+#    only_project_targets: true.
+#    exclude_targets: 'Alamofire.framework',
+#    minimum_coverage_percentage: 10.0
+# )
 
 # changelog.check
