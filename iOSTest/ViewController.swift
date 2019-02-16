@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     }
     
     func checkThis() -> String {
-        return "shalonm"
+        return "shalom"
     }
 
 
