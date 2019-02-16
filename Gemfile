@@ -5,10 +5,7 @@ gem 'cocoapods'
 gem 'danger'
 gem 'danger-swiftlint'
 gem 'danger-changelog', '~> 0.3.0'
-gem 'xcov'
 gem 'danger-xcov'
-gem 'slather'
-gem 'danger-slather'
 
 
 plugins_path = File.join(File.dirname(__FILE__), 'fastlane', 'Pluginfile')
