@@ -42,7 +42,6 @@ xcov.report(
    scheme: 'iOSTest',
    workspace: 'iOSTest.xcworkspace',
    only_project_targets: true,
-   include_test_targets:true,
    minimum_coverage_percentage: 10.0
 )
 
